@@ -1,0 +1,154 @@
+    /*Reset básico para eliminar el encabezado de la página*/
+*{
+    box-sizing: border-box;
+}    
+
+/*Configuracón principal del cuerpo del documento "body= (todo lo que el usuario ve en la página)*/
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(#135, #d6c4da 0%, #b8a9c9 100%); /*Degradado de fondo*/
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /*Efecto de desplazamiento suave entre secciones*/
+}
+
+
+
+/*Personalizar el encabezado principal*/
+
+header{
+    background: linear-gradient(#135, blueviolet 0%, #b8a9c9 100%); /*Color del fondo del encabezado*/
+    color: white; /*Color del texto del encabezado*/
+    text-align: center; /*Centrar el texto del encabezado*/
+    padding: 24px; /*Espaciado interno del encabezado*/
+}
+
+/*Estilo para el titulo principal.*/
+header h1{
+        font-size: 40px; /* Tamaño de fuente del titulo*/
+}
+
+/*Configuración del menú de navegación*/
+nav{
+    text-align: center;
+}
+
+header nav a{
+    color: rgb(219, 206, 224); /*Color del texto de los enlaces*/
+    text-decoration: none; /*Eliminar subrayado de los enlaces*/
+    margin: 0 15px; /*Espaciado entre los enlaces*/
+    font-size: 18px; /*Tamaño de fuente de los enlaces*/
+}
+
+/*Pseudo clase*/
+header nav a:hover{
+    font-size: 20px; /*Tamaño de fuente de los enlaces al pasar el cursor por encima*/
+    color: #e715e7; /*Color del texto de los enlaces al pasar el cursor por encima*/
+    text-decoration: underline; /*Subrayado de los enlaces al pasar el cursor por encima*/
+    transition: all 0.3s ease; /*Efecto de transición suave al pasar el cursor por encima*/
+    
+}
+
+
+header p{
+    color: #ecf1f1; /*Color del texto de los enlaces al pasar el cursor por encima*/
+    font-size: 20px; /*Tamaño de fuente del mensaje de bienvenida*/
+   margin: 40px 0 0; /*Espaciado entre los enlaces al pasar el cursor por encima*/
+}
+
+/*Estilos del main*/
+
+main{
+    max-width: 1200%; /*Ancho máximo del main más controlado*/
+    margin: 0px auto; /*Centrar el contenido*/
+    padding: 40px 20px; /*Espaciado interno del main*/
+}
+
+.imagen img{
+    width: 200px; /*Ancho de las imágenes*/
+    border-radius: 15px; /*esquinas redondeadas*/
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /*Sombra alrededor de las imágenes*/
+    transition: transform 0.3s ease; /*Efecto suave*/
+    margin: 10px; /*Espaciado entre imágenes*/
+}
+
+/*Efecto al pasar el mouse por encima de las imágenes*/
+.imagen img:hover{
+    transform: translate(-5px); /*las imagenes flotan hacia arriba*/
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25); /*Sombra más intensa*/
+}
+    
+ /*Estilos para la seccíón de texto*/
+.texto{
+    padding: 20px; /*Espaciado interno del texto*/
+    max-width: 800px; /*Ancho máximo para mejor lectura*/
+    margin: 0 auto; /*Centrar el texto y agregar margen inferior*/
+    line-height: 1.6; /*Espaciado entre lineas*/
+}
+
+.texto h2{
+    color: #333; /*Color del titulo*/
+    margin-bottom: 20px; /*Espaciado debajo titulo*/
+}
+
+.texto p {
+    margin-bottom: 15px; /*Espacio entre parrafos*/
+    text-align: justify; /*Justificar el texto*/
+}
+
+/* Estilos para el formulario de citas - sin fondo blanco */
+.formulario-citas {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 500px;
+    backdrop-filter: blur(10px); /* Efecto de cristal */
+}
+
+.formulario-citas h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.campo-form {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.campo-form input, 
+.campo-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+button[type="submit"] {
+    background: blueviolet;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background: #7b2cbf;
+}

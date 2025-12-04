@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--Declaramos el idioma como español para accesibilidad-->
+<html lang="es">
+<head>
+    <!--Configuración básica del documento HTML -->
+    <meta charset="UTF-8"> <!--Para que funcionen las tildes y ñ-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Para que se adapte a cualquier dispositivo-->
+    <title>MediCitas.2 - Gestión de citas médicas</title>
+    <!--Inicio CSS para el encabezado-->
+
+    <!--Enlazar archivo css-->
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+  
+<body>
+    <!--Encabezado principal de la página-->
+<header>
+    <h1>Gestión de citas médicas</h1>
+
+    <!--Menú de navegación principal-Etiqueta Nav= los enlaces para moverse en el sitio-->
+    <nav>
+    <a href="">Inicio</a>
+    <a href="">Citas</a>
+    <a href="">Usuario</a>
+    <a href="">Contacto</a>
+</nav>
+
+<!--Mensaje de bienvenida para el usuario (Etiqueta para parrafo)-->
+<p>Bienvenido a MediCitas, aqui puedes gestionar tus citas</p>
+</header>
+  
+
+<main>
+
+<!--Bloque 1-->
+<div class="texto">
+<h2>Gestiona tu cita</h2>
+
+<!--Sección de texto con informacón del sistema-->
+<div class="texto"> <!--Etiqueta para parrafo-->
+    <p>
+    En MediCitas, facilitamos la gestión de tus citas médicas de manera rápida y segura. Nuestro sistema te permite programar, cancelar y reprogramar citas con solo unos clics.
+    Además, recibirás recordatorios automáticos para que nunca olvides una consulta importante. Nos comprometemos a proteger tu información personal con los más altos estándares de seguridad, garantizando que tus datos estén siempre seguros.
+    </p>
+    <p>
+    Medicina General, Cardiología, Neurología y más especialidades disponibles.
+    Tu salud es nuestra prioridad en SaludContigo.
+    </p>      
+</div>
+
+<!--Bloque 2 imágenes-->
+<div class="imagen">
+    <img src="/img/imagen de usuario.png" alt="Usuario del sistema MediCitas">
+    <img src="/img/medico movil.jpg" alt="Médico usando aplicación móvil">
+</div>
+
+<!--Formulario de agendamiento de citas-->
+<section class="formulario-citas">
+    <form id="formCitas" method="post" action="/agendar">
+    <div class="campo-form">
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="campo-form">
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required>
+    </div>
+
+    <div class="campo-form">
+    <label for="especialidad">Especialidad:</label>
+    <select id="especialidad" name="especialidad" required>
+        <option value="">Seleccione...</option>
+        <option value="general">Medicina General</option>
+        <option value="cardiologia">Cardiología</option>
+        <option value="neurologia">Neurología</option>
+    </select>
+    </div>
+
+    <div class="campo-form">
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+    </div>
+
+    <button type="submit">Agendar cita</button>
+</form>
+</section>
+</div>
+</main>
+
+<!--Enlaces a JavaScript-->
+    <script src="/js/app.js"></script>
+
+</body>
+</html>
+
+
+
+<!--Fin del encabezado principal de la página-->
