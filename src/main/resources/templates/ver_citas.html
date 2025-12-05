@@ -2,11 +2,25 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Citas - MediCitas</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
-    <h1>Lista de Citas Agendadas</h1>
-    <table border="1">
+<header>
+    <h1>MediCitas</h1>
+    <p>Sistema de Gestión de Citas Médicas</p>
+    <nav>
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/registro}">Registrar Paciente</a>
+        <a th:href="@{/ver-citas}">Ver Citas</a>
+    </nav>
+</header>
+<main>
+    <div class="tabla-container">
+        <h2>Lista de Citas Agendadas</h2>
+        <table class="tabla-citas">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>
@@ -14,14 +28,20 @@
                 <th>Motivo</th>
                 <th>Estado</th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="cita : ${citas}">
-                        <td th:text="${cita.id}"></td>
-                        <td th:text="${cita.fecha}"></td>
-                        <td th:text="${cita.hora}"></td>
-                        <td th:text="${cita.motivo}"></td>
-                        <td th:text="${cita.estado}"></td>
-                    </tr>
+                <td th:text="${cita.id}"></td>
+                <td th:text="${cita.fecha}"></td>
+                <td th:text="${cita.hora}"></td>
+                <td th:text="${cita.motivo}"></td>
+                <td th:text="${cita.estado}"></td>
+            </tr>
+            </tbody>
         </table>
-
+    </div>
+</main>
 </body>
 </html>
+
+

@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Confirmación de Cita - MediCitas</title>
-<link rel="stylesheet" href="/css/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <title>Confirmación de Cita - MediCitas</title>
 </head>
 <body>
+<header>
+    <h1>MediCitas</h1>
+    <p>Sistema de Gestión de Citas Médicas</p>
+    <nav>
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/registro}">Registrar Paciente</a>
+        <a th:href="@{/ver-citas}">Ver Citas</a>
+    </nav>
+</header>
+<main>
+    <div class="confirmacion-container">
+        <img th:src="@{/img/imagen de usuario.png}" alt="Usuario" class="imagen-confirmacion">
 <h1>Cita Agendada Exitosamente</h1>
 <p>Su cita ha sido registrada con los siguientes datos:</p>
 <p>Nombre: <span th:text="${nombre}"></span></p>
 <p>Cédula: <span th:text="${cedula}"></span></p>
 <p>Especialidad: <span th:text="${especialidad}"></span></p>
 <p>Fecha: <span th:text="${fecha}"></span></p>
+    </div>
+</main>
 </body>
 </html>

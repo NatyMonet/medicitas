@@ -62,7 +62,7 @@ header p{
 /*Estilos del main*/
 
 main{
-    max-width: 1200%; /*Ancho máximo del main más controlado*/
+    max-width: 1200px; /*Ancho máximo del main más controlado*/
     margin: 0px auto; /*Centrar el contenido*/
     padding: 40px 20px; /*Espaciado interno del main*/
 }
@@ -151,4 +151,67 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background: #7b2cbf;
+}
+/* ===== ESTILOS PARA VER CITAS ===== */
+.tabla-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tabla-citas {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-citas thead {
+    background: blueviolet;
+    color: white;
+}
+
+.tabla-citas th,
+.tabla-citas td {
+    padding: 15px;
+    text-align: center;
+}
+
+.tabla-citas tbody tr:hover {
+    background: rgba(138, 43, 226, 0.1);
+}
+/* ===== ESTILOS PARA CONFIRMACION ===== */
+.confirmacion-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.confirmacion-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.confirmacion-container p {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.imagen-confirmacion {
+    width: 120px;
+    margin-bottom: 20px;
 }
