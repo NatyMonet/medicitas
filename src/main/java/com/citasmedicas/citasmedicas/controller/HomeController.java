@@ -5,10 +5,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.citasmedicas.citasmedicas.repository.CitaRepository;
+import java.util.List;
+import com.citasmedicas.citasmedicas.model.Cita;
 
 @Controller
 
 public class HomeController {
+    private final CitaRepository citaRepository;
+
+    public HomeController(CitaRepository citaRepository) {
+        this.citaRepository = citaRepository;
+    }
     //1 método - Mostrar página principal
     @GetMapping("/*")
     public String home(Model model) {
@@ -47,4 +55,11 @@ public class HomeController {
 
             return "registro_confirmacion";
         }
+    //5 método - Ver lista de citas
+    @GetMapping("/ver-citas")
+    public String verCitas(Model model) {
+        List<Cita> citas = citaRepository.findAll();
+        model.addAttribute("citas", citas);
+        return "ver_citas.html";
+    }
     }

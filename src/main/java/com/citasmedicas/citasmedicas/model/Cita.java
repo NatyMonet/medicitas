@@ -17,12 +17,17 @@ public class Cita {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cita")
     private Long id;
 
     private LocalDate fecha;
     private LocalTime hora;
     private String motivo;
+    private String estado;
+    private String observaciones;
+    @Column(name = "id_paciente")
     private Long idPaciente;
+    @Column(name = "id_medico")
     private Long idMedico;
 
     //Métodos de creación getter y setter
@@ -63,6 +68,22 @@ public class Cita {
         this.motivo = motivo;
     }
     // Tercer atributo
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
 
     public Long getIdPaciente() {
         return idPaciente;

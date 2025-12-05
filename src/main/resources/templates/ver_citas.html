@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Citas - MediCitas</title>
+</head>
+<body>
+    <h1>Lista de Citas Agendadas</h1>
+    <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Motivo</th>
+                <th>Estado</th>
+            </tr>
+            <tr th:each="cita : ${citas}">
+                        <td th:text="${cita.id}"></td>
+                        <td th:text="${cita.fecha}"></td>
+                        <td th:text="${cita.hora}"></td>
+                        <td th:text="${cita.motivo}"></td>
+                        <td th:text="${cita.estado}"></td>
+                    </tr>
+        </table>
+
+</body>
+</html>
