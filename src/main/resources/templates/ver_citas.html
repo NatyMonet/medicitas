@@ -27,6 +27,7 @@
                 <th>Hora</th>
                 <th>Motivo</th>
                 <th>Estado</th>
+                <th>Acción</th>
             </tr>
             </thead>
             <tbody>
@@ -36,6 +37,13 @@
                 <td th:text="${cita.hora}"></td>
                 <td th:text="${cita.motivo}"></td>
                 <td th:text="${cita.estado}"></td>
+                <td>
+                    <form th:action="@{/cancelar-cita/{id}(id=${cita.id})}" method="post" style="display: inline;">
+                 <button type="submit" class="btn-cancelar" onclick="return confirm('¿Estás seguro de cancelar esta cita?');">
+                   Cancelar
+                 </button>
+                </form>
+            </td>
             </tr>
             </tbody>
         </table>

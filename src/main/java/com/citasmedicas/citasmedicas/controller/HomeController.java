@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.citasmedicas.citasmedicas.repository.CitaRepository;
 import java.util.List;
 import com.citasmedicas.citasmedicas.model.Cita;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.util.Optional;
 
 @Controller
 
@@ -62,4 +65,32 @@ public class HomeController {
         model.addAttribute("citas", citas);
         return "ver_citas.html";
     }
+
+
+//6 método - Cancelar cita (NUEVO - Módulo 4)
+@PostMapping("/cancelar-cita/{id}")
+public String cancelarCita(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+    try {
+        // Buscar la cita por ID
+        Optional<Cita> citaOpcional = citaRepository.findById(id);
+
+        if (citaOpcional.isPresent()) {
+            // Si existe, la eliminamos
+            citaRepository.deleteById(id);
+            redirectAttributes.addFlashAttribute("mensaje", "Cita cancelada exitosamente");
+            redirectAttributes.addFlashAttribute("tipoMensaje", "success");
+        } else {
+            redirectAttributes.addFlashAttribute("mensaje", "La cita no existe");
+            redirectAttributes.addFlashAttribute("tipoMensaje", "error");
+        }
+
+    } catch (Exception e) {
+        redirectAttributes.addFlashAttribute("mensaje", "Error al cancelar la cita: " + e.getMessage());
+        redirectAttributes.addFlashAttribute("tipoMensaje", "error");
     }
+
+    return "redirect:/ver-citas";
+}// ← Esta llave cierra el método cancelarCita
+}// ← Esta llave cierra la clase HomeController
+
+
