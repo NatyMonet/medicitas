@@ -3,33 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario - MediCitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .registro-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 450px;
+        }
+        h1 { text-align: center; color: #764ba2; }
+        label { font-weight: bold; color: #333; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .links { text-align: center; margin-top: 20px; }
+        a { color: #764ba2; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
 <body>
-
-<h1>MediCitas - Crear Nueva Cuenta</h1>
-
-<form th:action="@{/registro-usuario}" method="post">
-    <label>Nombre completo:</label><br>
-    <input type="text" name="nombreCompleto" required><br><br>
-
-    <label>Correo electrónico:</label><br>
-    <input type="email" name="email" required><br><br>
-
-    <label>Contraseña:</label><br>
-    <input type="password" name="contrasena" required><br><br>
-
-    <label>Rol:</label><br>
-    <select name="rol" required>
-        <option value="">-- Seleccionar rol --</option>
-        <option value="PACIENTE">Paciente</option>
-        <option value="MEDICO">Médico</option>
-        <option value="ADMIN">Administrador</option>
-    </select><br><br>
-
-    <button type="submit">Crear Cuenta</button>
-</form>
-
-<p><a th:href="@{/login}">¿Ya tienes cuenta? Iniciar Sesión</a></p>
-
+<div class="registro-container">
+    <h1>MediCitas</h1>
+    <p style="text-align:center; color:#666;">Crear Nueva Cuenta</p>
+    <form th:action="@{/registro-usuario}" method="post">
+        <label>Nombre completo:</label>
+        <input type="text" name="nombreCompleto" placeholder="Tu nombre completo" required>
+        <label>Correo electrónico:</label>
+        <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+        <label>Contraseña:</label>
+        <input type="password" name="contrasena" placeholder="Crea una contraseña" required>
+        <label>Rol:</label>
+        <select name="rol" required>
+            <option value="">-- Seleccionar rol --</option>
+            <option value="PACIENTE">Paciente</option>
+            <option value="MEDICO">Médico</option>
+            <option value="ADMIN">Administrador</option>
+        </select>
+        <button type="submit">Crear Cuenta</button>
+    </form>
+    <div class="links">
+        <p><a th:href="@{/login}">¿Ya tienes cuenta? Iniciar Sesión</a></p>
+    </div>
+</div>
 </body>
 </html>
