@@ -13,16 +13,21 @@ import com.citasmedicas.citasmedicas.model.Cita;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Optional;
+import com.citasmedicas.citasmedicas.repository.UsuarioRepository;
+import com.citasmedicas.citasmedicas.model.Usuario;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 
 public class HomeController {
     private final CitaRepository citaRepository;
     private final MedicoRepository medicoRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public HomeController(CitaRepository citaRepository, MedicoRepository medicoRepository) {
+    public HomeController(CitaRepository citaRepository, MedicoRepository medicoRepository, UsuarioRepository usuarioRepository) {
         this.citaRepository = citaRepository;
         this.medicoRepository = medicoRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     //1 método - Mostrar página principal
@@ -143,4 +148,57 @@ public class HomeController {
 
         return "medico_confirmacion";
     }
+    //10 método - Mostrar login
+    @GetMapping("/login")
+    public String mostrarLogin() {
+        return "login";
+    }
+    //11 método - Procesar login
+    @PostMapping("/login")
+    public String procesarLogin(@RequestParam String email,
+                                @RequestParam String contrasena,
+                                HttpSession session,
+                                RedirectAttributes redirectAttributes) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
+        if (usuario != null && usuario.getContrasena().equals(contrasena)) {
+            session.setAttribute("usuarioLogueado", usuario);
+            return "redirect:/";
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Email o contraseña incorrectos");
+            return "redirect:/login";
+        }
+    }
+    //12 método - Cerrar sesión
+    @GetMapping("/logout")
+    public String cerrarSesion(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
+    }
+
+    //13 método - Mostrar registro de usuario
+    @GetMapping("/registro-usuario")
+    public String mostrarRegistroUsuario() {
+        return "registro_usuario";
+    }
+
+    //14 método - Procesar registro de usuario
+    @PostMapping("/registro-usuario")
+    public String registrarUsuario(@RequestParam String nombreCompleto,
+                                   @RequestParam String email,
+                                   @RequestParam String contrasena,
+                                   @RequestParam String rol,
+                                   RedirectAttributes redirectAttributes) {
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setNombreCompleto(nombreCompleto);
+        nuevoUsuario.setEmail(email);
+        nuevoUsuario.setContrasena(contrasena);
+        nuevoUsuario.setRol(rol);
+
+        usuarioRepository.save(nuevoUsuario);
+
+        redirectAttributes.addFlashAttribute("mensaje", "Usuario registrado exitosamente");
+        return "redirect:/login";
+    }
+
 }

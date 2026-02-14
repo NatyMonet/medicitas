@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario - MediCitas</title>
+</head>
+<body>
+
+<h1>MediCitas - Crear Nueva Cuenta</h1>
+
+<form th:action="@{/registro-usuario}" method="post">
+    <label>Nombre completo:</label><br>
+    <input type="text" name="nombreCompleto" required><br><br>
+
+    <label>Correo electrónico:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Contraseña:</label><br>
+    <input type="password" name="contrasena" required><br><br>
+
+    <label>Rol:</label><br>
+    <select name="rol" required>
+        <option value="">-- Seleccionar rol --</option>
+        <option value="PACIENTE">Paciente</option>
+        <option value="MEDICO">Médico</option>
+        <option value="ADMIN">Administrador</option>
+    </select><br><br>
+
+    <button type="submit">Crear Cuenta</button>
+</form>
+
+<p><a th:href="@{/login}">¿Ya tienes cuenta? Iniciar Sesión</a></p>
+
+</body>
+</html>

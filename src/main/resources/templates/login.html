@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - MediCitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #764ba2;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+        input:focus {
+            border-color: #764ba2;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<body>
+<div class="login-container">
+    <h1>MediCitas</h1>
+    <p style="text-align:center; color:#666;">Iniciar Sesión</p>
+
+    <div th:if="${error}" style="background:#ffe0e0; color:red; padding:10px; border-radius:8px; text-align:center; margin-bottom:15px;">
+        <span th:text="${error}"></span>
+    </div>
+
+    <div th:if="${mensaje}" style="background:#e0ffe0; color:green; padding:10px; border-radius:8px; text-align:center; margin-bottom:15px;">
+        <span th:text="${mensaje}"></span>
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <label>Correo electrónico:</label>
+        <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+
+        <label>Contraseña:</label>
+        <input type="password" name="contrasena" placeholder="Tu contraseña" required>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div class="links">
+        <p><a th:href="@{/registro-usuario}">¿No tienes cuenta? Crear cuenta</a></p>
+        <p><a th:href="@{/}" style="color:#999;">Volver al inicio</a></p>
+    </div>
+</div>
+</body>
+</html>
