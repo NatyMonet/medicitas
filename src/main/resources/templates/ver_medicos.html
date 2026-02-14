@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Médicos - MediCitas</title>
+</head>
+<body>
+<h1>Lista de Médicos Registrados</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Especialidades</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medico : ${medicos}">
+        <td th:text="${medico.id}"></td>
+        <td th:text="${medico.nombres}"></td>
+        <td th:text="${medico.apellidos}"></td>
+        <td th:text="${medico.especialidades}"></td>
+        <td th:text="${medico.correo}"></td>
+        <td th:text="${medico.telefono}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Volver al inicio</a>
+</body>
+</html>
